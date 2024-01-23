@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+    <title>Busiplus - Corporate Business Template</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<!-- modernizr -->
+	<script src="{% static 'js/modernizr-2.8.3.min.js' %}"></script>
+<body>
+
+    <div id="wrapper">
+		<!-- Start navbar -->
+        <nav class="navbar navbar-default sticker" id="main-nav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="{% url 'main' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-nav-collapse" data-hover="dropdown" data-animations="fadeInDown fadeInRight slideInUp fadeInLeft">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'main' %}">Asosiy sahifa</a></li>
+                        <li><a href="{% url 'services' %}">Xizmatlar </a></li>
+                        <li class="dropdown">
+                        <a href="{% url 'blog' %}" class="dropdown-toggle">Blog</a>
+                    </li>
+                    <li class="active"><a href="{% url 'contact' %}">Xabar qoldirish</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		<!--/ end navbar -->
+		
+		<!-- Start page-header -->
+        <section class="page-header">
+            <div class="overlay">
+                <div class="container">
+                    <h2 class="page-title pull-left">Xabar qoldirish</h2>
+                    <ol class="breadcrumb pull-right">
+                        <li><a href="{% url 'main' %}">Asosiy sahifa</a></li>
+                        <li class="active">Xabar qoldirish</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+		<!--/ end page-header -->
+		
+		<!-- Start page-container  -->
+        <section class="page-container contact-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="contact-info">
+                            <h4>Korporativ ofis</h4>
+                            <ul>
+                                <li><i class="fa fa-map-marker"></i> 678 Melbourne, Australia Australia
+                                    <br>Australia 50453</li>
+                                <li><i class="fa fa-phone"></i> +1-234-567-8901</li>
+                                <li><i class="fa fa-envelope"></i> <a href="mailto:info@busiplus.com">info@busiplus.com</a></li>
+                                <li><i class="fa fa-globe"></i> <a href="{% url 'main' %}">www.busiplus.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8">
+                        <form class="contact-form" id="contact-form" method="post" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <h4>Aloqa qiling</h4>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" placeholder="Ismingizni kiritng" class="form-control">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="phone" name="phone" placeholder="Telefon raqam" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Xabarni yozing" name="message" rows="8"></textarea>
+                            </div>
+                           
+							 <button class="submit nrb-btn" type="submit" data-toggle="modal" data-target="#successModal">Xabarni yuborish</button>
+                            </form>
+                            <p class="form-message"></p>
+                        </div>
+                        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="successModalLabel">Muvaffaqiyatli</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Xabaringiz muvaffaqiyatli yuborildi!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Yopish</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!--/ end page-container  -->
+		
+		<!-- footer Start -->
+        <footer id="footer">
+            <div class="widgetized-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="footer-widget">
+                                <a href="{% url 'main' %}" class="footer-logo"><img src="{% static 'images/footer_logo.png' %}" alt=""></a>
+                                <p>Matnli burilishlarsiz virtual jarayonni takomillashtirishni noyob tarzda kengaytiring. </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="footer-widget">
+                                <h2 class="widget-title">Tez havolalar</h2>
+                                <ul class="menu-links">
+                                    <li><a href="{% url 'main' %}">Xizmat ko'rsatish shartlari</a></li>
+                                    <li><a href="{% url 'contact' %}">Xabar qoldirish</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="footer-widget">
+                                <h2 class="widget-title">Aloqa qiling</h2>
+                                <p>678 Melbourne, Australia Australia
+                                    <br>Australia 50453</p>
+                                <p>Tel : +1-234-567-8901</p>
+                                <p>Email : <a href="mailto:info@royal.com">info@royal.com</a></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="footer-widget">
+                                <h2 class="widget-title">Flickr</h2>
+                                <ul class="flickr-gallery clearfix">
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-1.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-1.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-2.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-2.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-3.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-3.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-4.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-4.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-5.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-5.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-6.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-6.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-7.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-7.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-8.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-8.jpg' %}" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a  class="img-poppu" href="{% static 'images/portfolio/grid/portfolio-9.jpg' %}"><img src="{% static 'images/portfolio/grid/portfolio-9.jpg' %}" alt=""></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-footer">
+                <div class="container"><span class="copyright-text">&copy; 2019 Busiplus agentligi. Barcha huquqlar himoyalangan.</span></div>
+            </div>
+        </footer>
+		<!--/ footer End -->
+		
+		<!-- start scrollUp  -->
+        <div id="toTop">
+            <i class="fa fa-chevron-up"></i>
+        </div>
+		<!--/ end scrollUp  -->
+    </div>
+	
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/all-plugins.js' %}"></script>
+    <script src="{% static 'js/google-analytics.js' %}"></script>
+	<script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/ajax-mail.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // Если вы используете Django, убедитесь, что шаблон поддерживает тег {% csrf_token %}
+    $(document).ready(function () {
+        $('#contact-form').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function () {
+                    // Покажите модальное окно после успешной отправки формы
+                    $('#successModal').modal('show');
+                },
+                error: function () {
+                    // Обработка ошибок при отправке формы
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>
